@@ -1,3 +1,5 @@
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/MacTheZazou/paper-input-location)
+
 ##&lt;paper-input-location&gt;
 
 Material design: Text fields with location autocomplete
