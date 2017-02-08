@@ -1,0 +1,24 @@
+{
+  "name": "paper-input-location",
+  "version": "1.0.0",
+  "description": "A Material Design input with location autocomplete (Polymer 1.x)",
+  "authors": [
+    "Zaccharie Jacquat"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MacTheZazou/paper-input-location.git"
+  },
+  "main": "paper-input-location.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "paper-input": "^1.1.23",
+    "google-apis": "^1.1.7"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  }
+}
