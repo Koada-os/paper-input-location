@@ -35,7 +35,7 @@ This element work with the Google Maps API. You need a valid API Key. You can ge
     <google-maps-api id="maps" api-key="[[mapsApiKey]]" libraries="places" on-api-load="_onApiLoad"></google-maps-api>
     <paper-input
             id="inputPaper"
-            on-query-changed="_resetLocation"
+            on-value-changed="_resetLocation"
             invalid="{{invalid}}"
             disabled="[[disabled]]"
             autofocus="[[autofocus]]"
@@ -172,11 +172,11 @@ This element work with the Google Maps API. You need a valid API Key. You can ge
         _onChangePlace: function() {
             this.fire('place-changed');
             this.$.inputPaper.invalid = false;
-            var self = this;
-            setTimeout(function() {
-                self.place = self.autocomplete.getPlace();
-                self.locationName = self.autocomplete.getPlace().formatted_address;
-            }, 50);
+            this.place = this.autocomplete.getPlace();
+            this.locationName = this.autocomplete.getPlace().formatted_address;
+            this.latitude = this.autocomplete.getPlace().geometry.location.lat();
+            this.longitude = this.autocomplete.getPlace().geometry.location.lng();
+
         }
     });
 </script>
