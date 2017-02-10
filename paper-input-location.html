@@ -158,7 +158,15 @@ This element work with the Google Maps API. You need a valid API Key. You can ge
             this.place = {};
         },
         _onApiLoad: function() {
-            this.autocomplete = new google.maps.places.Autocomplete(this.$.inputPaper.querySelector('#input'), this.options);
+            var rawInput;
+
+            if (this.$.inputPaper.querySelector('#input')) {
+                rawInput = this.$.inputPaper.querySelector('#input');
+            } else {
+                rawInput = this.$.inputPaper.root.querySelector('#input');
+            }
+
+            this.autocomplete = new google.maps.places.Autocomplete(rawInput, this.options);
             google.maps.event.addListener(this.autocomplete, 'place_changed', this._onChangePlace.bind(this));
         },
         _onChangePlace: function() {
