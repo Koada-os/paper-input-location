@@ -3,12 +3,6 @@
 <link rel="import" href="../google-apis/google-maps-api.html">
 
 <!--
-`paper-input-location` provides components for a Material Design input with location autocomplete based on Google Map Places API.
-
-@demo demo/index.html
--->
-
-<!--
 ### paper-input-location
 Material design: [Text fields](https://www.google.com/design/spec/components/text-fields.html) with location autocomplete
 
@@ -37,11 +31,11 @@ This element work with the Google Maps API. You need a valid API Key. You can ge
             id="inputPaper"
             on-value-changed="_resetLocation"
             invalid="{{invalid}}"
-            disabled="[[disabled]]"
+            disabled$="[[disabled]]"
             autofocus="[[autofocus]]"
             label="[[label]]"
             value="{{query}}"
-            required="[[required]]"
+            required$="[[required]]"
             error-message="[[errorMessage]]">
     </paper-input>
   </template>
@@ -113,6 +107,28 @@ This element work with the Google Maps API. You need a valid API Key. You can ge
                 notify: true
             },
             /**
+             * Set to true to disable this input.
+             */
+            disabled: {
+                type: Boolean,
+                default: false
+            },
+            /**
+             * Set to true to mark the input as required.
+             */
+            required: {
+                type: Boolean,
+                default: false
+            },
+            /**
+             * Returns true if the value is invalid
+             */
+            invalid: {
+                type: Boolean,
+                value: false,
+                notify: true
+            },
+            /**
              * Google Maps api key. To obtain an API key, see https://developers.google.com/maps/documentation/javascript/get-api-key.
              */
             mapsApiKey: String,
@@ -120,14 +136,6 @@ This element work with the Google Maps API. You need a valid API Key. You can ge
              * The label for this input.
              */
             label: String,
-            /**
-             * Set to true to disable this input.
-             */
-            disabled: Boolean,
-            /**
-             * Set to true to mark the input as required.
-             */
-            required: Boolean,
             /**
              * Autofocus propertie
              */
