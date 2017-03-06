@@ -46,9 +46,9 @@ This element work with the Google Maps API. You need a valid API Key. You can ge
         is: 'paper-input-location',
 
         /**
-         * Fired when the place object changed. (After the user click on one Google Maps autocomplete result.)
+         * Fired when the user clicks on a place in the Google Map place list.
          *
-         * @event place-changed
+         * @event place-clicked
          */
 
         properties: {
@@ -178,12 +178,12 @@ This element work with the Google Maps API. You need a valid API Key. You can ge
             google.maps.event.addListener(this.autocomplete, 'place_changed', this._onChangePlace.bind(this));
         },
         _onChangePlace: function() {
-            this.fire('place-changed');
             this.$.inputPaper.invalid = false;
             this.place = this.autocomplete.getPlace();
             this.locationName = this.autocomplete.getPlace().formatted_address;
             this.latitude = this.autocomplete.getPlace().geometry.location.lat();
             this.longitude = this.autocomplete.getPlace().geometry.location.lng();
+            this.fire('place-clicked');
 
         }
     });
